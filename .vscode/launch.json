@@ -1,0 +1,27 @@
+	// launch.json
+	{
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "(gdb) Launch", //这个应该是F1中出现的名字
+                "preLaunchTask": "Build",  //在launch之前运行的任务名，这个名字一定要跟tasks.json中的任务名字大小写一致，已经编译好了就删掉这一行
+                "type": "cppdbg",
+                "request": "launch",
+                "program": "${fileDirname}/${fileBasenameNoExtension}.exe", //需要运行的是当前打开文件的目录中，名字和当前文件相同，但扩展名为exe的程序
+                "args": ["C:/Users/lenovo/Desktop/ecbsr-result/hh1000.bmp", "2"], //给main函数的参数
+                "stopAtEntry": false, // 在main函数入口处是否停止
+                "cwd": "${workspaceFolder}", // 指定调试器启动时所处的工作目录，确保相对路径等配置设置正确
+                "environment": [],
+                "externalConsole": true,  // 是否再额外开一个终端，否则就会在vscode下面的终端开一个
+                "MIMode": "gdb",
+                "miDebuggerPath": "E:/Mingw/mingw64/bin/gdb.exe", //gdb.exe的路径
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            }]
+    }
+    
